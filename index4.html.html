@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Figma Landing Clone</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+body{
+    background:#e9e4e4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* MAIN CARD */
+.wrapper{
+    width:95%;
+    max-width:1100px;
+    background:linear-gradient(135deg,#2c1ccf,#1b149c);
+    border-radius:24px;
+    padding:50px 60px;
+    color:white;
+    box-shadow:0 25px 60px rgba(0,0,0,0.25);
+}
+
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:60px;
+}
+
+.logo{
+    font-weight:600;
+    font-size:18px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    font-size:14px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    opacity:0.85;
+}
+
+.nav-links a:hover{
+    opacity:1;
+}
+
+.purchase{
+    background:#ff5a6e;
+    border:none;
+    padding:8px 20px;
+    border-radius:20px;
+    color:white;
+    cursor:pointer;
+    font-size:14px;
+}
+
+/* CONTENT */
+.content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+}
+
+/* LEFT SIDE */
+.left{
+    width:50%;
+}
+
+.left h1{
+    font-size:48px;
+    line-height:1.2;
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+.left p{
+    font-size:15px;
+    line-height:1.7;
+    opacity:0.9;
+    margin-bottom:25px;
+}
+
+.learn{
+    background:#ff5a6e;
+    border:none;
+    padding:10px 22px;
+    border-radius:25px;
+    color:white;
+    font-size:14px;
+    cursor:pointer;
+}
+
+/* RIGHT SIGNIN CARD */
+.right{
+    width:400px;
+    background:white;
+    color:black;
+    padding:35px 30px;
+    border-radius:26px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+.right h3{
+    text-align:center;
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+input{
+    width:100%;
+    padding:13px;
+    border-radius:12px;
+    border:none;
+    background:#f1f1f1;
+    font-size:14px;
+}
+
+.signin-btn{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:25px;
+    margin-top:10px;
+    background:#2c1ccf;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.divider{
+    text-align:center;
+    margin:18px 0;
+    font-size:12px;
+    color:#888;
+}
+
+.google-btn{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:25px;
+    background:linear-gradient(to right,#4facfe,#00f2fe);
+    color:white;
+    font-size:14px;
+    cursor:pointer;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .content{
+        flex-direction:column;
+        text-align:center;
+    }
+    .left{
+        width:100%;
+    }
+    .right{
+        width:100%;
+        max-width:400px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">Chandana Groups</div>
+
+        <div class="nav-links">
+            <a href="#">OVERVIEW</a>
+            <a href="#">Price</a>
+            <a href="#">Blog</a>
+            <a href="#">Feedback</a>
+            <button class="purchase">Purchase</button>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- LEFT -->
+        <div class="left">
+            <h1>Generate Awesome<br>Web Pages</h1>
+            <p>
+                The most important part of the Startup is the samples.
+                The samples form a set of 25 usable pages you can use as is
+                or you can add new blocks.
+            </p>
+            <button class="learn">Learn More</button>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+            <h3>Sign Up Now</h3>
+
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Your Email">
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Your Password">
+            </div>
+
+            <button class="signin-btn" onclick="login()">Sign In</button>
+
+            <div class="divider">or</div>
+
+            <button class="google-btn">Login via Google</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function login(){
+    let email=document.getElementById("email").value;
+    let password=document.getElementById("password").value;
+
+    if(email=="" || password==""){
+        alert("Please enter email and password");
+        return;
+    }
+
+    localStorage.setItem("userEmail",email);
+    window.location.href="crud.html";
+}
+</script>
+
+</body>
+</html>
